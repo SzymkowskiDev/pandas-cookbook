@@ -26,6 +26,8 @@ import pandas as pd
 
 ## 📝 Cookbook
 
+**Creating data types**
+
 
 🐼 Pandas offers 1-dimensional Series, 2-dimensional DataFrames and used to offer 3-dimensional Panels, that were deprected (since version 0.20.0) in favour of representing 3-D data with a MultiIndex on a DataFrame via the to_frame() method or with the xarray package. Here we deal briefly with Series and extensively with DataFrames.
 
@@ -90,25 +92,34 @@ print(my_df_columns)
 ```
 
 
-🐼 With Pandas you can read files of multiple types ([full list here](https://pandas.pydata.org/docs/user_guide/io.html)), but in most cases the users needs to read CSV, JSON, XML and MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively. Pandas even offers reading of big data fromats such as Apache Parquet, Optimized Row Columnar or Feather (read_parquet(), read_orc() and read_feather()).
+**Loading files**
 
+
+🐼 With Pandas you can read files of multiple types ([full list here](https://pandas.pydata.org/docs/user_guide/io.html)), but in most cases the users needs to read CSV, JSON, XML and MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively. Pandas even offers reading of big data fromats such as Apache Parquet, Optimized Row Columnar or Feather (read_parquet(), read_orc() and read_feather()).
 
 
 **3. Loading files into a DataFrame: CSV**
 
 * .CSV file can be loaded as DataFrame using the pd.read_csv() method
-* pd.read_csv() takes 
+* The most important argument of pd.read_csv() is "filepath"
+* A commonly used parameter is "names" used to specify which columns from the csv file to load to the newly created DataFrame
+* Other arguments can help with things like specifying headers, separator etc. [other arguments](https://pandas.pydata.org/docs/user_guide/io.html#io-read-csv-table)
 
 ```python
-CODE GOES HERE
+# loading a CSV file
+my_csv = pd.read_csv("my_file.csv", names = ["A", "B"])
+print(my_csv) # The parameter "names" is optional and used to specify which columns to load from the file
 ```
 
 **4. Loading files into a DataFrame: JSON**
 
-Description of the example.
+* Reading .JSON files is accomplished with pd.read_json() method
+* The first argument is the filepath
+* [Other parameters in the documenation](https://pandas.pydata.org/docs/user_guide/io.html#reading-json)
 
 ```python
-CODE GOES HERE
+my_json = pd.read_json("my_json.json")
+print(my_json)
 ```
 
 ## ⚙ Configurations
@@ -125,9 +136,9 @@ Description of tip 1.
 
 ## 🚧 Warnings / Common Errors / Known Issues
 
-⚠️ **The "column" argument in the pd.DataFrame() method is not for renaming columns**
+⚠️ **The "column" argument in pd.DataFrame() method is not for renaming columns**
 
-It is used to select which columns from the underlying data to include in the newly created DataFrame
+It is used to select which columns from the underlying data to include in the newly created DataFrame.
 
 ```python
 my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = ["a", "b"])
@@ -144,9 +155,14 @@ my_df_columns.columns = ["newest_a", "newest_b"]
 
 ```
 
-⚠️ **Warning 2**
+⚠️ **The "names" argument in pd.read_csv() method is not for renaming columns**
 
-Description of warning 2.
+It is used to select which columns from the underlying file to load to the newly created DataFrame.
+
+```python
+my_csv = pd.read_csv("my_file.csv", names = ["A", "B"])
+# If the file contains columns "A", "B" and "C", then the above line will skip column "C"
+```
 
 
 
