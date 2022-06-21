@@ -130,15 +130,6 @@ print(my_json)
 ```
 
 
-## 💡 Tips
-💭 **Tip 1**
-
-Description of tip 1.
-
-💭 **Tip 2**
-
-Description of tip 1.
-
 ## 🚧 Warnings / Common Errors / Known Issues
 
 ⚠️ **The "column" argument in pd.DataFrame() method is not for renaming columns**
@@ -169,6 +160,15 @@ my_csv = pd.read_csv("my_file.csv", names = ["A", "B"])
 # If the file contains columns "A", "B" and "C", then the above line will skip column "C"
 ```
 
+
+## 💡 Tips
+💭 **Tip 1**
+
+Description of tip 1.
+
+💭 **Tip 2**
+
+Description of tip 1.
 
 
 ## 📧 Contact
