@@ -12,6 +12,8 @@ How to perform various data cleaning and manipulation tasks in Pandas.
 - 5.2. Creating data types: DataFrame
 - 5.3. Loading files into a DataFrame: CSV
 - 5.4. Loading files into a DataFrame: JSON
+- 5.5. Accessing values: Series
+- 5.6. Accessing values: DataFrame
 6. Warnings / Common Errors / Known Issues
 7. Tips
 8. Contact
@@ -142,22 +144,48 @@ print(my_json)
 **Accessing**
 
 
-**5. Accessing values in a Series**
+**5. Accessing values: Series**
 
 * You use square bracket notation to access elements in a Series
 * You can access values by referring to its label
-
 ```python
 x = my_series_list_custom["b"]
 print(x)
 ```
-
-* Or by refering to its position
-
+* Or by refering to its position (bearing in mind that Python starts counting at 0)
 ```python
 y = my_series_list_custom[2]
 print(y)
 ```
+* The square bracket notation can also be used to set values
+```python
+my_series_list_custom[0] = 100
+print(my_series_list_custom)
+```
+* You can also use semicolon inside the square brackets to select ranges of values (bearing in mind that end is not included)
+```python
+z = my_series_list_custom[0:2]
+print(z)
+```
+* You can use the colon without start or end index
+```python
+# This is what will happen if you won't supply the end index
+o = my_series_list_custom[1:]
+print(o) # [2, 3]
+
+# This is what will happen if you won't supply the start index
+e = my_series_list_custom[:2]
+print(e) # [100,2]
+```
+* You can use logic inside the square bracket notation
+```python
+b = my_series_list_custom[my_series_list_custom > 50]
+print(b) # 100
+
+w = my_series_list_custom[my_series_list_custom  != 100]
+print(w) # [2, 3]
+```
+
 
 
 
@@ -190,6 +218,28 @@ It is used to select which columns from the underlying file to load to the newly
 my_csv = pd.read_csv("my_file.csv", names = ["A", "B"])
 # If the file contains columns "A", "B" and "C", then the above line will skip column "C"
 ```
+
+⚠️ **When indexing a range, the end index is not included**
+
+If my_series_list_custom is the following Series:
+
+a    100
+b      2
+c      3
+
+Then in order to select the first two values (100 and 2) one should write:
+
+```python
+z = my_series_list_custom[0:2] # 0, 1, 2
+```
+
+As opposed to:
+
+```python
+z = my_series_list_custom[0:1] # 0, 1
+```
+
+This is because the end index is not included.
 
 
 ## 💡 Tips
