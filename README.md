@@ -18,6 +18,13 @@ Download and run Jupyter notebooks
 import pandas as pd
 ```
 
+## ⚙ Configurations
+To check the version of Pandas installed run the following in the console:
+
+```python
+print(pd.__version__)
+```
+
 ## Contents
 1. Creating data types: Series
 2. Creating data types: DataFrame
@@ -122,8 +129,6 @@ my_json = pd.read_json("my_json.json")
 print(my_json)
 ```
 
-## ⚙ Configurations
-Sth
 
 ## 💡 Tips
 💭 **Tip 1**
