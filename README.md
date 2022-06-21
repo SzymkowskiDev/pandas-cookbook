@@ -27,7 +27,7 @@ Pandas offers 1-dimensional Series, 2-dimensional DataFrames and used to offer 3
 * Series is created with the pd.Series() method
 * pd.Series() method takes list or dictionary as data argument
 * Elements in a series are labelled
-* By default labells are integers 0, 1, 2, ...
+* By default labels are integers 0, 1, 2, ...
 * To make custom labels you must provide a second "index" argument to the pd.Series() method
 * If pd.Series() is fed with a dictioanry, then keys become labels
 
@@ -49,14 +49,39 @@ print(my_series_dict) # keys become labels
 
 **2. Creating data types: DataFrame**
 
-Description of the example.
+* DataFrame is created using the pd.DatFrame() method
+* pd.DataFrame() method takes either Series, dictionary, or another DataFrame as the data argument
+* Additionally, some file types like .CSV or .JSON can be imported as a DataFrame (using read_csv() and read_json() functions, more on that later)
+* One can create multi-column data frame from Series if it's a dictionary of Series
+* When providing a dictionary to pd.DataFrame() the keys become column names
+* For multi-row data frame, the values in supplied dictionary must be lists of values
+* Apart from the data argument, pd.DatFrame() takes arguments "index" and "columns"
+* The optional "index" argument is for labelling rows
+* The optional "columns" argument is for selecting which columns from the data argument to include
 
 ```python
-CODE GOES HERE
+# data frame from a series
+my_df_series = pd.DataFrame(my_series_list)
+print(my_df_series) # contains only one column
+
+# data frame from a dictionary of series
+my_df_series_2 = pd.DataFrame({"a": my_series_list, "b": my_series_list})
+print(my_df_series_2)
+
+# data frame from a dictionary
+my_df_dict = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]})
+print(my_df_dict)
+
+# custom row labels with the "index" argument
+my_df_labels = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, index = ["first_row", "second_row"])
+print(my_df_labels)
+
+# selecting columns with the "colums" argument
+my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = ["a", "b"])
+print(my_df_columns)
 ```
 
-
-**Example 2. Title**
+**3. Loading files into a DataFrame**
 
 Description of the example.
 ```python
@@ -77,9 +102,24 @@ Description of tip 1.
 
 ## 🚧 Warnings / Common Errors / Known Issues
 
-⚠️ **Warning 1**
+⚠️ **The "column" argument in the pd.DataFrame() method is not for renaming columns**
 
-Description of warning 1.
+It is used to select which columns from the underlying data to include in the newly created DataFrame
+
+```python
+my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = ["a", "b"])
+```
+
+To rename columns in a DataFrame use pd.rename() method or columns() attribute:
+
+```python
+# Using the pd.rename() method
+my_df_columns.rename(columns = {'a':'new_a', 'b':'new_b'}, inplace = True)
+
+# Using the columns() attribute
+my_df_columns.columns = ["newest_a", "newest_b"]
+
+```
 
 ⚠️ **Warning 2**
 
