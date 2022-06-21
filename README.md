@@ -139,6 +139,27 @@ my_json = pd.read_json("my_json.json")
 print(my_json)
 ```
 
+**Accessing**
+
+
+**5. Accessing values in a Series**
+
+* You use square bracket notation to access elements in a Series
+* You can access values by referring to its label
+
+```python
+x = my_series_list_custom["b"]
+print(x)
+```
+
+* Or by refering to its position
+
+```python
+y = my_series_list_custom[2]
+print(y)
+```
+
+
 
 ## 🚧 Warnings / Common Errors / Known Issues
 
