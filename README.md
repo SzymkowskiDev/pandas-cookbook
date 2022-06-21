@@ -6,7 +6,7 @@ How to perform various data cleaning and manipulation tasks in Pandas.
 Download and run Jupyter notebooks
 
 ## 🎓 Learning Materials
-* w3schools Pandas tutorial [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
+* [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
 * javapoint Pandas tutorial [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
 * geeksforgeeks Pandas tutorial [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
 * kaggle Pandas tutorial [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
@@ -18,9 +18,15 @@ Download and run Jupyter notebooks
 import pandas as pd
 ```
 
+## Contents
+1. Creating data types: Series
+2. Creating data types: DataFrame
+3. Loading files into a DataFrame: CSV
+4. Loading files into a DataFrame: JSON
+
 ## 📝 Cookbook
 
-Pandas offers 1-dimensional Series, 2-dimensional DataFrames and used to offer 3-dimensional Panels, that were deprected (since version 0.20.0) in favour of representing 3-D data with a MultiIndex on a DataFrame via the to_frame() method or with the xarray package. Here we deal briefly with Series and extensively with DataFrames.
+🐼 Pandas offers 1-dimensional Series, 2-dimensional DataFrames and used to offer 3-dimensional Panels, that were deprected (since version 0.20.0) in favour of representing 3-D data with a MultiIndex on a DataFrame via the to_frame() method or with the xarray package. Here we deal briefly with Series and extensively with DataFrames.
 
 **1. Creating data types: Series**
 
@@ -81,9 +87,21 @@ my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = [
 print(my_df_columns)
 ```
 
-**3. Loading files into a DataFrame**
+🐼 With Pandas you can read files of multiple types (full list here), but in most cases the users needs to read CSV, JSON, XML, MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively.
+
+**3. Loading files into a DataFrame: CSV**
+
+* .CSV file can be loaded as DataFrame using the pd.read_csv() method
+* pd.read_csv() takes 
+
+```python
+CODE GOES HERE
+```
+
+**4. Loading files into a DataFrame: JSON**
 
 Description of the example.
+
 ```python
 CODE GOES HERE
 ```
@@ -125,10 +143,7 @@ my_df_columns.columns = ["newest_a", "newest_b"]
 
 Description of warning 2.
 
-## Contents
-1. How to create data types
-2. How to access elements in data types
-3. How to modify data types
+
 
 ## 📧 Contact
 [![](https://img.shields.io/twitter/url?label=/SzymkowskiDev&style=social&url=https%3A%2F%2Ftwitter.com%2FSzymkowskiDev)](https://twitter.com/SzymkowskiDev) [![](https://img.shields.io/twitter/url?label=/kamil-szymkowski/&logo=linkedin&logoColor=%230077B5&style=social&url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fkamil-szymkowski%2F)](https://www.linkedin.com/in/kamil-szymkowski/) [![](https://img.shields.io/twitter/url?label=@szymkowskidev&logo=medium&logoColor=%23292929&style=social&url=https%3A%2F%2Fmedium.com%2F%40szymkowskidev)](https://medium.com/@szymkowskidev) [![](https://img.shields.io/twitter/url?label=/SzymkowskiDev&logo=github&logoColor=%23292929&style=social&url=https%3A%2F%2Fgithub.com%2FSzymkowskiDev)](https://github.com/SzymkowskiDev)
