@@ -7,11 +7,11 @@ Download and run Jupyter notebooks
 
 ## 🎓 Learning Materials
 * [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
-* javapoint Pandas tutorial [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
-* geeksforgeeks Pandas tutorial [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
-* kaggle Pandas tutorial [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
-* Pandas documentation [Pandas documentation](https://pandas.pydata.org/getting_started.html)
-* Pandas GitHub repository [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
+* [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
+* [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
+* [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
+* [Pandas documentation](https://pandas.pydata.org/getting_started.html)
+* [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
 
 ## 📋 Modules
 ```python
@@ -87,7 +87,7 @@ my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = [
 print(my_df_columns)
 ```
 
-🐼 With Pandas you can read files of multiple types (full list here), but in most cases the users needs to read CSV, JSON, XML, MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively.
+🐼 With Pandas you can read files of multiple types ([full list here](https://pandas.pydata.org/docs/user_guide/io.html)), but in most cases the users needs to read CSV, JSON, XML, MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively.
 
 **3. Loading files into a DataFrame: CSV**
 
