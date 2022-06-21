@@ -18,7 +18,7 @@ Download and run Jupyter notebooks
 
 ## 📋 Modules
 ```python
-import pandas as py
+import pandas as pd
 ```
 
 ## ⭐ Features
