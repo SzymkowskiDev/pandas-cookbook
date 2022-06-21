@@ -9,12 +9,12 @@ Table of contents goes here
 Download and run Jupyter notebooks
 
 ## 🎓 Learning Materials
-* w3schools Pandas tutorial [w3schools Pandas tutorial]([http://markdown.github.io](https://www.w3schools.com/python/pandas/default.asp))
-* javapoint Pandas tutorial [javapoint Pandas tutorial]([http://markdown.github.io](https://www.javatpoint.com/python-pandas))
-* geeksforgeeks Pandas tutorial [geeksforgeeks Pandas tutorial]([http://markdown.github.io](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp))
-* kaggle Pandas tutorial [kaggle Pandas tutorial]([http://markdown.github.io](https://www.kaggle.com/learn/pandas))
-* Pandas documentation [Pandas documentation]([http://markdown.github.io](https://pandas.pydata.org/getting_started.html))
-* Pandas GitHub repository [Pandas GitHub repository]([http://markdown.github.io](https://github.com/pandas-dev/pandas))
+* w3schools Pandas tutorial [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
+* javapoint Pandas tutorial [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
+* geeksforgeeks Pandas tutorial [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
+* kaggle Pandas tutorial [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
+* Pandas documentation [Pandas documentation](https://pandas.pydata.org/getting_started.html)
+* Pandas GitHub repository [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
 
 ## 📋 Modules
 ```python
