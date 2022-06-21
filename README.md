@@ -2,9 +2,6 @@
 # Pandas Cookbook
 How to perform various data cleaning and manipulation tasks in Pandas.
 
-## Contents
-Table of contents goes here
-
 ## 🚀 How to run
 Download and run Jupyter notebooks
 
@@ -15,6 +12,11 @@ Download and run Jupyter notebooks
 * kaggle Pandas tutorial [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
 * Pandas documentation [Pandas documentation](https://pandas.pydata.org/getting_started.html)
 * Pandas GitHub repository [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
+
+## Contents
+1. How to create data types
+2. How to access elements in data types
+3. How to modify data types
 
 ## 📋 Modules
 ```python
