@@ -8,10 +8,10 @@ How to perform various data cleaning and manipulation tasks in Pandas.
 3. Modules
 4. Configurations
 5. Cookbook
-  5.1. Creating data types: Series
-  5.2. Creating data types: DataFrame
-  5.3. Loading files into a DataFrame: CSV
-  5.4. Loading files into a DataFrame: JSON
+- 5.1. Creating data types: Series
+- 5.2. Creating data types: DataFrame
+- 5.3. Loading files into a DataFrame: CSV
+- 5.4. Loading files into a DataFrame: JSON
 6. Warnings / Common Errors / Known Issues
 7. Tips
 8. Contact
