@@ -187,6 +187,8 @@ print(w) # [2, 3]
 ```
 
 
+**6. Accessing values: DataFrame**
+
 
 
 ## 🚧 Warnings / Common Errors / Known Issues
