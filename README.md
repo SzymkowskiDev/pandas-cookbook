@@ -26,7 +26,9 @@ import pandas as pd
 
 ## 📝 Cookbook
 
+
 🐼 Pandas offers 1-dimensional Series, 2-dimensional DataFrames and used to offer 3-dimensional Panels, that were deprected (since version 0.20.0) in favour of representing 3-D data with a MultiIndex on a DataFrame via the to_frame() method or with the xarray package. Here we deal briefly with Series and extensively with DataFrames.
+
 
 **1. Creating data types: Series**
 
@@ -87,7 +89,10 @@ my_df_columns = pd.DataFrame({"a": [1, 2], "b": [3, 4], "c":[5, 6]}, columns = [
 print(my_df_columns)
 ```
 
-🐼 With Pandas you can read files of multiple types ([full list here](https://pandas.pydata.org/docs/user_guide/io.html)), but in most cases the users needs to read CSV, JSON, XML, MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively.
+
+🐼 With Pandas you can read files of multiple types ([full list here](https://pandas.pydata.org/docs/user_guide/io.html)), but in most cases the users needs to read CSV, JSON, XML and MS EXCEL. These 4 are accomplished with: read_csv(), read_json(), read_xml() and read_excel() respectively. Pandas even offers reading of big data fromats such as Apache Parquet, Optimized Row Columnar or Feather (read_parquet(), read_orc() and read_feather()).
+
+
 
 **3. Loading files into a DataFrame: CSV**
 
