@@ -27,7 +27,9 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 9. License
 
 ## 🚀 How to run
-Download and run Jupyter notebooks
+1. Download the Jupyter notebook and associated files (my_file.csv and my_json.json)
+2. Place the files the directory where the notebook is located
+3. Run the Jupyter notebook
 
 ## 🎓 Learning Materials
 * Most important source: [Pandas documentation](https://pandas.pydata.org/getting_started.html)
