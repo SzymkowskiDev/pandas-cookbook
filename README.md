@@ -2,7 +2,10 @@
 # Pandas Cookbook 🐼🥘📗
 How to perform various data cleaning and manipulation tasks in Pandas.
 
-The project comprises of the following: Jupyter notebook, this README containing examples and in the future a collection of Kata challanges on CodeWars.
+The project comprises of the following: 
+* Jupyter notebook
+* this README containing examples 
+* and in the future a collection of Kata challanges on CodeWars
 
 The link to the CodeWars Pandas colletion will be provided [here](https://www.google.com/search?q=in+progress&tbm=isch&ved=2ahUKEwjQ0rz_7MD4AhWUhP0HHQtoB_QQ2-cCegQIABAA&oq=in+progress&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoHCCMQ6gIQJzoECCMQJ1DhBlj_E2DxFGgBcAB4AIABXYgBqweSAQIxMpgBAKABAaoBC2d3cy13aXotaW1nsAEKwAEB&sclient=img&ei=Ce-yYpCqMJSJ9u8Pi9CdoA8&bih=802&biw=1706).
 
