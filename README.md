@@ -21,6 +21,16 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 - 5.4. Loading files into a DataFrame: JSON
 - 5.5. Accessing values: Series
 - 5.6. Accessing values: DataFrame
+- 5.7. Data Manipulation: Adding rows to a DataFrame
+- 5.8. Data Manipulation: Adding columns to a DataFrame
+- 5.9. Data Manipulation: From wide to narrow format
+- 5.10. Data Manipulation: From narrow to wide format
+- 5.11. Data Manipulation: SQL-like joins
+- 5.12. Data Manipulation:
+- 5.13. Data Manipulation:
+- 5.14. Data Manipulation:
+- 5.15. Data Manipulation:
+- 5.16. Data Manipulation:
 6. Warnings / Common Errors / Known Issues
 7. Tips
 8. Contact
@@ -33,6 +43,7 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 
 ## 🎓 Learning Materials
 * Most important source: [Pandas documentation](https://pandas.pydata.org/getting_started.html)
+* [Pandas official cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
 * [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
 * [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
 * [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
@@ -306,6 +317,116 @@ print(my_df_labels[my_df_labels["a"] == 2])
 print(my_df_labels[my_df_labels > 2])         # Returns DataFrame with NaN where conditon is not met
 ```
 
+
+**7. Data Manipulation: Adding rows to a DataFrame**
+* You can add a new row by the means of simple assignment:
+```python
+print(my_df_labels)
+#             a  b  c
+# first_row   1  3  5
+# second_row  2  4  6
+
+my_df_labels.loc["third_row"] = {"a":3, "b":5, "c":7}
+print(my_df_labels)
+#             a  b  c
+# first_row   1  3  5
+# second_row  2  4  6
+# third_row   3  5  7
+```
+* To add a new row to a DataFrame use pd.concat() method
+* The concat() methods takes a list of data frames as data argument
+```python
+# You can assign the newly created DatFrame to a new variable
+new_df = pd.concat([test_df, n_row])
+print(new_df)
+
+# Or you can overwrite the old data frame
+test_df = pd.concat([test_df, n_row])
+print(test_df)
+```
+
+**8. Data Manipulation: Adding columns to a DataFrame**
+* You can add columns to a DataFrame using the simple assignment
+```python
+# For a data frame that looks like this:
+n_row = pd.DataFrame({"col_a": [4, 8], "col_b": ["d", "e"]})
+# We could do the following:
+n_row["col_c"] = pd.DataFrame({"col_c": [True]})
+n_row["col_d"] = 100
+n_row["col_d"] = [1, 2]
+print(n_row)
+#     col_a col_b col_c  col_d
+# 0      4     d  True      1
+# 1      8     e   NaN      2
+```
+
+
+**9. Data Manipulation: From wide to narrow format**
+
+In a wide format we have an identyfing column (e.g. Person) and every variable present in the table gets its own column:
+```python
+df_wide = pd.DataFrame({"Person": ["Bob", "Alice", "Steve"], "Age": [32, 24, 64], "Weight": [75, 66, 102], "Height": [180, 175, 165]})
+#   Person  Age  Weight  Height
+# 0    Bob   32      75     180
+# 1  Alice   24      66     175
+# 2  Steve   64     102     165
+```
+* Use pd.melt() method to reshape wide data into narrow format
+```python
+print(pd.melt(df_wide, id_vars = "Person"))
+#   Person variable  value
+# 0    Bob      Age     32
+# 1  Alice      Age     24
+# 2  Steve      Age     64
+# 3    Bob   Weight     75
+# 4  Alice   Weight     66
+# 5  Steve   Weight    102
+# 6    Bob   Height    180
+# 7  Alice   Height    175
+# 8  Steve   Height    165
+```
+* pd.melt() method takes a DataFrame as first argument and id_vars as second argument
+* The id_vars serves to identify which column is an identyfing column
+* [more on the melt() method in the docs](https://pandas.pydata.org/docs/reference/api/pandas.melt.html)
+
+**10. Data Manipulation: From narrow to wide format**
+
+In a narrow format we have 3 columns: identifying, variable and value:
+```python
+df_narrow = pd.DataFrame({"Person": ["Bob", "Bob", "Bob", "Alice", "Alice", "Alice", "Steve", "Steve", "Steve"],
+                         "Variable": ["Age", "Weigth", "Height", "Age", "Weigth", "Height", "Age", "Weigth", "Height"],
+                         "Value": [32, 75, 180, 24, 66, 175, 64, 102, 165]})
+#   Person Variable  Value
+# 0    Bob      Age     32
+# 1    Bob   Weigth     75
+# 2    Bob   Height    180
+# 3  Alice      Age     24
+# 4  Alice   Weigth     66
+# 5  Alice   Height    175
+# 6  Steve      Age     64
+# 7  Steve   Weigth    102
+# 8  Steve   Height    165
+```
+* Use pd.melt() method to reshape a narrow table to a wide table
+```python
+print(df_narrow.pivot(index = ["Person"], columns = ["Variable"], values = ["Value"]))
+#                  Value              
+# Variable   Age Height Weigth
+# Person                      
+# Alice       24    175     66
+# Bob         32    180     75
+# Steve       64    165    102
+```
+* The pivot() method takes 3 arguments: index, columns and values
+* "index" parameter is the identifying column
+* "columns" parameter is the variable that contains names of variables relating to each case
+* "value" parameter is for the column with values of each variable of each case
+
+**11. Data Manipulation: SQL-like joins**
+
+
+
+
 ## 🚧 Warnings / Common Errors / Known Issues
 
 ⚠️ **The "column" argument in pd.DataFrame() method is not for renaming columns**
@@ -365,6 +486,30 @@ Since loc is an attribute one uses square brackets to access rows of a DataFrame
 ```python
 row_zero = test_df.loc[0]
 test_df.loc[1] = 200
+```
+
+⚠️ **concat() is not a method or attribute of DataFrame object but belongs to pd instead**
+
+You cannot add a new row to a data frame by writing:
+```python
+new_df = old_df.concat(new_row)
+```
+You'll get an error saying that the concat() is not DataFrame's attribute
+
+Instead you use concat() from pd:
+```python
+new_df = pd.concat([old_df, new_df])
+```
+
+⚠️ **while melt() is a method of pd, it's opposite pivot() is a method of DataFrame**
+
+To change from wide to narrow format refer to pd's method melt():
+```python
+pd.melt(df_wide, id_vars = "Person")
+```
+When performing the opposite operation, that is when going from narrow to wide refer to DataFrame's method pivot():
+```pivot
+df_narrow.pivot(index = ["Person"], columns = ["Variable"], values = ["Value"])
 ```
 
 
