@@ -25,12 +25,10 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 - 5.8. Data Manipulation: Adding columns to a DataFrame
 - 5.9. Data Manipulation: From wide to narrow format
 - 5.10. Data Manipulation: From narrow to wide format
-- 5.11. Data Manipulation: SQL-like joins
-- 5.12. Data Manipulation:
-- 5.13. Data Manipulation:
-- 5.14. Data Manipulation:
-- 5.15. Data Manipulation:
-- 5.16. Data Manipulation:
+- 5.11. Data Manipulation: Inner join
+- 5.12. Data Manipulation: Left (Outer) join
+- 5.13. Data Manipulation: Right (Outer) join
+- 5.14. Data Manipulation: Full (Outer) join
 6. Warnings / Common Errors / Known Issues
 7. Tips
 8. Contact
@@ -422,9 +420,82 @@ print(df_narrow.pivot(index = ["Person"], columns = ["Variable"], values = ["Val
 * "columns" parameter is the variable that contains names of variables relating to each case
 * "value" parameter is for the column with values of each variable of each case
 
-**11. Data Manipulation: SQL-like joins**
+**Standard Joins**
+* All the SQL-like joins are performed using the pd.merge() method
+* The pd.merge() methods takes three obligatory arguments: table 1, table 2 and how parameter
+* The how parameter is to specify the type of join (inner, left, right or outer)
+
+Let's look at the sample data frames:
+```python
+# table 1
+df_1 = pd.DataFrame({"var_1": ["A", "B", "C"], "var_2": [1, 2, 3]})
+#   var_1  var_2
+# 0     A      1
+# 1     B      2
+# 2     C      3
+```
+
+```python
+# table 2
+df_2 = pd.DataFrame({"var_1": ["A", "B", "D"], "var_3": [True, False, True]})
+#   var_1  var_3
+# 0     A   True
+# 1     B  False
+# 2     D   True
+```
+
+* They share only one column name: "var_1"
+* For "var_1" they share two values: "A" and "B"
+
+**11. Data Manipulation: Inner join**
+* The "on" parameter is optional
+```python
+print(pd.merge(df_1, df_2, how = "inner", on = "var_1")) # on parameter is optional it asks for a shared variable
+#   var_1  var_2  var_3
+# 0     A      1   True
+# 1     B      2  False
+```
+* Inner join looks at var_1 in both tables and outputs rows such that values are matched in both tables
 
 
+**12. Data Manipulation: Left (Outer) join**
+
+```python
+print(pd.merge(df_1, df_2, how = "left"))
+#   var_1  var_2  var_3
+# 0     A      1   True
+# 1     B      2  False
+# 2     C      3    NaN
+```
+* The left join will include all the columns and values from table_1
+* Where the matching variable (var_1) is not matched in table_2, there for these variables NaN will appear
+
+**13. Data Manipulation: Right (Outer) join**
+
+```python
+print(pd.merge(df_1, df_2, how = "right"))
+#   var_1  var_2  var_3
+# 0     A    1.0   True
+# 1     B    2.0  False
+# 2     D    NaN   True
+```
+* The right join will necessarily include all the columns and values from table_2
+* Where matching variable (var_1) is not matched in table_1, there for these variables NaN will appear
+* Right join will become a Left join if you swap the order of tables in the pd.merge() method
+
+
+**14. Data Manipulation: Full (Outer) join**
+
+```python
+print(pd.merge(df_1, df_2, how = "outer"))
+#   var_1  var_2  var_3
+# 0     A    1.0   True
+# 1     B    2.0  False
+# 2     C    3.0    NaN
+# 3     D    NaN   True
+```
+* In the outer join the output table will contain all the columns from both tables
+* If for a given case/matching variable (var_1 here) there is no variable or match then NaN will apear
 
 
 ## 🚧 Warnings / Common Errors / Known Issues
