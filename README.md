@@ -188,8 +188,112 @@ print(w) # [2, 3]
 
 
 **6. Accessing values: DataFrame**
+* You can use square bracket notation to access columns of a DataFrame
+```python
+test_df = pd.DataFrame({"col_a": [1, 2, 3], "col_b": ["a", "b", "c"]})
 
+# Output a single column selected by its name
+print(test_df["col_a"]) 
 
+# Output multiple columns selected by their name (provide a list of names)
+print(test_df[["col_a", "col_b"]]) 
+```
+* To access rows you need to use .loc[] attribute
+```python
+# Accessing rows using the .loc[] attribute
+print(test_df.loc[0]) # col_a    1, col_b    a
+print(test_df.loc[1]) # col_a    2, col_b    b
+print(test_df.loc[2]) # col_a    3, col_b    c
+# In each case the output is a Series
+```
+* The .loc[] attribute can be used for setting values as well
+```python
+test_df.loc[1] = 200
+print(test_df)
+#    col_a col_b
+# 0      1     a
+# 1    200   200
+# 2      3     c
+* To return multiple rows using .loc[] one supplies a list inside the square brackets notation
+```python
+print(test_df.loc[1:2]) # The output is a DataFrame
+```
+* If rows in a DataFrame are labelled then you can refer to their names in the .loc[] attribute
+```python
+print(my_df_labels.loc["second_row"])
+```
+* QUESTION: What is the difference between .loc[] and .iloc[] attributes?
+```python
+print(test_df.iloc[0])
+print(test_df.loc[0])
+# both return:
+# col_a    1
+# col_b    a
+* ANSWER: loc selects rows by their labels, while iloc selects rows by their integer location
+```python
+# If a DataFrame has custom row names:
+#             a  b  c
+# first_row   1  3  5
+# second_row  2  4  6
+# Then to select first row one uses:
+print(my_df_labels.loc["first_row"])
+print(my_df_labels.iloc[0])
+```
+* You can supply a second argument the .loc[] attribute to make selection on specified column/columns
+```python
+print(test_df.loc[0:1, "col_a"])         # Returns a Series
+print(test_df.loc[0:1, "col_a":"col_b"]) # Returns a DataFrame
+```
+* You can perform similar operation using .iloc[] attribute (bearing in mind that the end index is not included)
+```python
+print(my_df_labels.loc["first_row":"second_row", "a":"b"])
+# is the same as:
+print(my_df_labels.iloc[0:2, 0:2])
+```
+* You can use semicolons or provide lists as first two arguments:
+```python
+print(my_df_labels.iloc[0:2, 0:2])
+# is the same as:
+print(my_df_labels.iloc[[0, 1], [0, 1]])
+```
+* Semicolon without start and end means all
+```python
+print(my_df_labels.iloc[[0, 1], :])
+# Which is equivalent to leaving second argument empty
+print(my_df_labels.iloc[[0, 1], ])
+```
+* QUESTION: What are .at[] and .iat[] attributes?
+```python
+# For a DataFrame
+#             a  b  c
+# first_row   1  3  5
+# second_row  2  4  6
+
+print(my_df_labels.iloc[1, 1])
+print(my_df_labels.iat[1, 1])
+
+# Both seemingly return the same value 4
+
+print(type(my_df_labels.iloc[1, 1]))
+print(type(my_df_labels.iat[1, 1]))
+
+# Output types is also the same: <class 'numpy.int64'>
+```
+* ANSWER:  PERFORMANCE. at and iat are very fast versions of loc and iloc [source](https://stackoverflow.com/questions/28757389/pandas-loc-vs-iloc-vs-at-vs-iat)
+* While loc and iloc are meant to access multiple values, at and iat are used to access single values from DataFrames
+* at takes arguments: row label and column name
+```python 
+print(my_df_labels.at["second_row", "b"])
+```
+* iat takes argument: row integer positon, column integer position
+```python
+print(my_df_labels.iat[1, 1])
+```
+* You can use logic inside the square bracket notation
+```python
+print(my_df_labels[my_df_labels["a"] == 2])
+print(my_df_labels[my_df_labels > 2])         # Returns DataFrame with NaN where conditon is not met
+```
 
 ## 🚧 Warnings / Common Errors / Known Issues
 
@@ -242,6 +346,15 @@ z = my_series_list_custom[0:1] # 0, 1
 ```
 
 This is because the end index is not included.
+
+⚠️ **loc is an attribute not a methods so use square brackets [] not round brackets ()**
+
+Since loc is an attribute one uses square brackets to access rows of a DataFrame in the fashion below:
+
+```python
+row_zero = test_df.loc[0]
+test_df.loc[1] = 200
+```
 
 
 ## 💡 Tips
