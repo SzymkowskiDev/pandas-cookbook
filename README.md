@@ -37,7 +37,7 @@ Download and run Jupyter notebooks
 * [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
 * [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
 * Warning Some API is outdated [4_Tutorial_Pandas_basics_Python.pdf](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/4_Tutorial_Pandas_basics_Python.pdf)
-* * Warning Some API is outdated [5_Data_Manipulation_Pandas_Python.pdf](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/5_Data_Manipulation_Pandas_Python.pdf)
+* Warning Some API is outdated [5_Data_Manipulation_Pandas_Python.pdf](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/5_Data_Manipulation_Pandas_Python.pdf)
 
 ## 📋 Modules
 ```python
