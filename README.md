@@ -30,11 +30,11 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 Download and run Jupyter notebooks
 
 ## 🎓 Learning Materials
+* Most important source: [Pandas documentation](https://pandas.pydata.org/getting_started.html)
 * [w3schools Pandas tutorial](https://www.w3schools.com/python/pandas/default.asp)
 * [javapoint Pandas tutorial](https://www.javatpoint.com/python-pandas)
 * [geeksforgeeks Pandas tutorial](https://www.geeksforgeeks.org/pandas-tutorial/?ref=lbp)
 * [kaggle Pandas tutorial](https://www.kaggle.com/learn/pandas)
-* [Pandas documentation](https://pandas.pydata.org/getting_started.html)
 * [Pandas GitHub repository](https://github.com/pandas-dev/pandas)
 
 ## 📋 Modules
