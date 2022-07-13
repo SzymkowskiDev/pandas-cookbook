@@ -1,3 +1,4 @@
+![pandas](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/pandas_logo.png?raw=true)
 
 # Pandas Cookbook 🐼🥘📗
 How to perform various data cleaning and manipulation tasks in Pandas.
