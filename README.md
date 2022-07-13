@@ -51,7 +51,7 @@ The link to the CodeWars Pandas collection will be provided [here](https://www.g
 * Warning Some API is outdated [4_Tutorial_Pandas_basics_Python.pdf](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/4_Tutorial_Pandas_basics_Python.pdf)
 * Warning Some API is outdated [5_Data_Manipulation_Pandas_Python.pdf](https://github.com/SzymkowskiDev/pandas-cookbook/blob/master/5_Data_Manipulation_Pandas_Python.pdf)
 
-## 📋 Modules
+## 📦 Modules
 ```python
 import pandas as pd
 ```
